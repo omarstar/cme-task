@@ -5,9 +5,11 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "bootstrap": "^4.5.2",
+    "contentful": "^7.14.7",
     "cra-template": "1.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
   "scripts": {

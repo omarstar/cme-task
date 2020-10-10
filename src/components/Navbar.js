@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
-    <nav class="navbar navbar-expand-lg bg-danger">
-      <a class="navbar-brand" href="#sc-title">
-        <img src="imgs/star.png" alt="logo" className="logo-box" />
+    <nav class="navbar navbar-expand-md navbar-light bg-transparent">
+      <a class="navbar-brand" href="#sc-header">
+        <img src={props.logo} alt="logo" className="App-logo" />
       </a>
 
       <button
@@ -23,28 +24,17 @@ const NavBar = () => {
         id="navbarSupportedContent"
       >
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#sc-itemsList">
-              page 1
-            </a>
+          <li class="nav-item text-capitalize mb-0">
+            <Link to="/home" class="nav-link">
+              home
+            </Link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#sc-counter">
-              page 2
-            </a>
+          <li class="nav-item text-capitalize mb-0">
+            <Link to="/counter" class="nav-link">
+              counter
+            </Link>
           </li>
         </ul>
-        {/* //search// */}
-        {/* <form className="fomr-inline">
-          <div className="md-form my-0">
-            <input
-              className="form-control mr-sm-2"
-              type="text"
-              placeholder="Search"
-              aria-label="Search"
-            />
-          </div>
-        </form> */}
       </div>
     </nav>
   );

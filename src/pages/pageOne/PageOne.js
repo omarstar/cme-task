@@ -1,6 +1,15 @@
 import React from "react";
-import "pg1-style.css";
+//import { CCustomer } from "../../services/Context";
+import "./pg1-style.css";
+import DataList from "../../components/page-one/DataList";
+import DataItem from "../../components/page-one/DataItem";
 
-export default function PageOne() {
-  return <div>in page one</div>;
+export default class PageOne extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <DataList />
+      </React.Fragment>
+    );
+  }
 }

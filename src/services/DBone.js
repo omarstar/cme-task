@@ -1,12 +1,7 @@
 export const bone = {
   subTitle: "CME-tasks",
-  slidePath: [
-    "imgs/c-outdoor.jpg",
-    "imgs/c-fightClass.jpg",
-    "imgs/c-competeBall.jpg",
-  ],
   logoPath: "imgs/star.png",
-  widePath: "imgs/light-blue-background.jpg",
+  widePath: "imgs/background-gold-blue.jpg",
   contact: {
     email: "info@mydomain.com",
     phone: "+9613987654",

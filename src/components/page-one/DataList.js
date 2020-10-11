@@ -46,7 +46,11 @@ function DataList(props) {
           <Grid container spacing={24} style={{ padding: 24 }}>
             {props.units.map((currentItem) => (
               <Grid item xs={12} style={{ margin: 8 }}>
-                <DataItem unit={currentItem} />
+                <DataItem
+                  key={currentItem}
+                  unit={currentItem}
+                  getCatId={props.getCatId}
+                />
               </Grid>
             ))}
           </Grid>

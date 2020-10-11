@@ -1,5 +1,4 @@
 import React from "react";
-//import { CCustomer } from "../../services/Context";
 import "./pg1-style.css";
 import DataList from "../../components/page-one/DataList";
 import DataDetails from "../../components/page-one/DataDetails";
@@ -17,6 +16,7 @@ export default class PageOne extends React.Component {
   state = {
     units: [],
     searchString: "",
+    catId: "",
   };
 
   constructor(props) {
@@ -50,6 +50,21 @@ export default class PageOne extends React.Component {
     this.getUnits();
   };
 
+  getItem = (idString) => {
+    const unit = this.state.units.find(
+      (item) => item.fields.category === idString
+    );
+    return unit;
+  };
+
+  getCatId = (idString) => {
+    this.setState(() => {
+      return {
+        catId: idString,
+      };
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -59,8 +74,9 @@ export default class PageOne extends React.Component {
               units={this.state.units}
               onSearchInput={this.setSearchString}
               getData={this.getUnits}
+              getCatId={this.getCatId}
             />
-            <DataDetails />
+            <DataDetails unit={this.getItem(this.state.catId)} />
           </div>
         </div>
       </React.Fragment>

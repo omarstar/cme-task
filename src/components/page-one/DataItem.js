@@ -1,6 +1,12 @@
 import React from "react";
 import { cardContainer, imgBox } from "../../styles/styles";
-import { Card, CardContent, CardMedia, Typography } from "@material-ui/core";
+import {
+  ButtonBase,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@material-ui/core";
 
 const DataItem = (props) => {
   const fld = props.unit.fields;
@@ -13,19 +19,13 @@ const DataItem = (props) => {
             image={fld.image.fields.file.url}
             title={fld.title}
           />
-          <CardContent style={{ padding: 10 }}>
-            <Typography gutterButtom variant="headline" component="h3">
-              {fld.category}
-            </Typography>
-            {/* <Typography component="p" style={{ width: "70%" }}>
-              {fld.description}
-            </Typography> */}
-          </CardContent>
-          {/* <CardActions>
-            <Button size="small" color="primary" href={fld.url} target="_blank">
-              Watch a Demo
-            </Button>
-          </CardActions> */}
+          <ButtonBase onClick={() => props.getCatId(fld.category)}>
+            <CardContent style={{ padding: 10 }}>
+              <Typography gutterButtom variant="subtitle1" component="h3">
+                {fld.category}
+              </Typography>
+            </CardContent>
+          </ButtonBase>
         </Card>
       ) : (
         "no item"

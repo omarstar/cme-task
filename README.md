@@ -11,7 +11,7 @@ the app component includes Header, PageOne and pageTwo
 * **Header** 
   * includes the Navbar
   * using content API for dynamic data
-  *bootsrap design
+  * bootstrap design
   
 * **pageOne**
   * includes list of items with images and url

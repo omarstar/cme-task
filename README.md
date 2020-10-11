@@ -1,5 +1,7 @@
 # cme-task
 
+_please check the master branch_
+---
 ### **Description**
 CME-Task as requested is a responsive website that include a list of data items that display details about each clickable item
 plus it include a counter using redux

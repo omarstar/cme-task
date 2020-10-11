@@ -1,5 +1,5 @@
 import React from "react";
-import { bone, objList } from "./DBone";
+import { bone } from "./DBone";
 
 const CX = React.createContext();
 

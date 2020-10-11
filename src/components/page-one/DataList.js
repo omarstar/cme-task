@@ -1,78 +1,61 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-import * as contentful from "contentful";
 import DataItem from "./DataItem";
+import { Button } from "@material-ui/core";
+import PageviewIcon from "@material-ui/icons/Pageview";
 
-const SPACE_ID = "an9hlgfxjkpy";
-const ACCESS_TOKEN = "0J-qOoWqQ0ecQepCzLInuB5xz35-LUMNHlsuVUYuZrc";
+function DataList(props) {
+  let query = "";
 
-const client = contentful.createClient({
-  space: SPACE_ID,
-  accessToken: ACCESS_TOKEN,
-});
+  function handleSearchInputChange(event) {
+    console.log("inside handleSearch query ", query);
 
-class DataList extends React.Component {
-  state = {
-    units: [],
-    searchString: "",
-  };
+    if (event.target.value) {
+      query = event.target.value;
+    } else {
+      query = "";
+    }
+    console.log("inside handleSearch new query ", query);
 
-  constructor(props) {
-    super(props);
-    this.getUnits();
+    props.onSearchInput(query);
   }
 
-  getUnits = () => {
-    client
-      .getEntries({
-        content_type: "units",
-        query: this.state.searchString,
-      })
-      .then((Response) => {
-        this.setState({ units: Response.items });
-      })
-      .catch((error) => {
-        console.log("error while fetching contentful: ", error);
-      });
-  };
-
-  handleSearchInputChange = (event) => {
-    if (event.target.value) {
-      this.setState({ searchString: event.target.value });
-    } else {
-      this.setState({ searchString: "" });
-    }
-    this.getUnits();
-  };
-
-  render() {
-    return (
-      <div className="col-10 col-md-6 mx-auto my-2">
-        {/* condition no data OR list of data */}
-        {this.state.units ? (
-          <div>
+  return (
+    <div className="col-10 col-md-6 mx-auto my-2">
+      {/* condition no data OR list of data */}
+      {props.units ? (
+        <div>
+          <div className="d-flex align-items-center justify-content-center">
             <TextField
               style={{ padding: 24 }}
               id="searchInput"
-              placeholder="Search for data"
+              placeholder="Filter data"
               margin="normal"
-              onChange={this.handleSearchInputChange}
+              onChange={handleSearchInputChange}
             />
-            <Grid container spacing={24} style={{ padding: 24 }}>
-              {this.state.units.map((currentItem) => (
-                <Grid item xs={12} style={{ margin: 8 }}>
-                  <DataItem unit={currentItem} />
-                </Grid>
-              ))}
-            </Grid>
+            <Button onClick={() => props.getData()}>
+              <PageviewIcon />
+            </Button>
           </div>
-        ) : (
-          "No data found"
-        )}
-      </div>
-    );
-  }
+          <p>
+            {props.units.length === 0
+              ? "No Results"
+              : `data found: # ${props.units.length}`}
+          </p>
+          <Grid container spacing={24} style={{ padding: 24 }}>
+            {props.units.map((currentItem) => (
+              <Grid item xs={12} style={{ margin: 8 }}>
+                <DataItem unit={currentItem} />
+              </Grid>
+            ))}
+          </Grid>
+        </div>
+      ) : (
+        "No data found"
+      )}
+    </div>
+  );
 }
 
 export default DataList;

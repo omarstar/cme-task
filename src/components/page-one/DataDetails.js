@@ -13,6 +13,7 @@ const useStyles = makeStyles({
   imgBox: { height: 0, width: "30%", paddingTop: "30%" },
   cardContainer: {
     background: "rgba(0, 0, 0, 0.3)",
+    width: "inherit",
   },
 });
 

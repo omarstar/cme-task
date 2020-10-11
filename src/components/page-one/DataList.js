@@ -28,7 +28,6 @@ function DataList(props) {
         <div>
           <div className="d-flex align-items-center justify-content-center">
             <TextField
-              style={{ padding: 24 }}
               id="searchInput"
               placeholder="Filter data"
               margin="normal"
@@ -38,12 +37,12 @@ function DataList(props) {
               <PageviewIcon />
             </Button>
           </div>
-          <p>
+          <p id="search-result">
             {props.units.length === 0
               ? "No Results"
               : `data found: # ${props.units.length}`}
           </p>
-          <Grid container spacing={24} style={{ padding: 24 }}>
+          <Grid container spacing={24} style={{ padding: 10 }}>
             {props.units.map((currentItem) => (
               <Grid item xs={12} style={{ margin: 8 }}>
                 <DataItem

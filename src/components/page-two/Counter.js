@@ -22,13 +22,23 @@ class Counter extends Component {
 
   render() {
     const { increment, decrement } = this.props;
+
     return (
-      <div className="col-10 mx-auto d-flex justify-content-center">
-        <button type="button" class="btn btn-info mx-1" onClick={decrement}>
+      <div className="col-10 mx-auto d-flex justify-content-center align-items-center">
+        <button type="button" class="btn btn-info mx-3" onClick={decrement}>
           <span>-</span>
         </button>
-        <span className="btn btn-black mx-1">{this.props.count}</span>
-        <button type="button" class="btn btn-info mx-1" onClick={increment}>
+
+        <div id="outer-circle">
+          <span
+            className={this.props.count === 0 ? "text-danger" : "text-info"}
+            id="inner-circle"
+          >
+            {this.props.count}
+          </span>
+        </div>
+
+        <button type="button" class="btn btn-info mx-3" onClick={increment}>
           <span>+</span>
         </button>
       </div>

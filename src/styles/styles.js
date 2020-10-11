@@ -1,6 +1,6 @@
 import bck from "../assets/Purple-Light.jpg";
-
-export const imgBox = { height: 0, width: "50%", paddingTop: "50%" };
+// related to page one list items
+export const imgBox = { height: 0, width: "25%", paddingTop: "25%" };
 export const cardContainer = {
   display: "flex",
   //   "flex-direction": "column",

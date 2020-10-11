@@ -27,8 +27,8 @@ const DataDetails = (props) => {
       {isData ? (
         <Card className={classes.cardContainer}>
           <div
-            className="d-flex align-items-center"
-            style={{ "justify-content": "space-around" }}
+            className="d-flex align-items-center p-2"
+            style={{ "justify-content": "space-evenly" }}
           >
             <CardMedia
               className={classes.imgBox}

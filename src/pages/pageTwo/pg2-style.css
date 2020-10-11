@@ -1,0 +1,35 @@
+#outer-circle {
+  background: #385a94;
+  border-radius: 50%;
+  height: 125px;
+  width: 125px;
+  position: relative;
+  font-weight: bold;
+  text-align: center;
+  background-image: url("../../assets/neon_circle.jpg");
+
+  /* 
+       Child elements with absolute positioning will be 
+       positioned relative to this div 
+      */
+}
+#inner-circle {
+  position: absolute;
+  background: #a57db188;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*
+       Put top edge and left edge in the center
+      */
+  top: 50%;
+  left: 50%;
+  margin: -50px 0px 0px -50px;
+  /* 
+       Offset the position correctly with
+       minus half of the width and minus half of the height 
+      */
+}

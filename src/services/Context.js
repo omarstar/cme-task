@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 import { bone } from "./DBone";
 
 const CX = React.createContext();
 
-class CProvider extends React.Component {
+class CProvider extends Component {
   state = {
     contentBone: bone,
   };

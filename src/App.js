@@ -8,7 +8,7 @@ import "./App.css";
 
 function App() {
   return (
-    <React.Fragment className="App">
+    <React.Fragment>
       <Header />
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/home" />} />
